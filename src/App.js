@@ -1,26 +1,40 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import MessageList from './Components/MessageList';
 
-function App() {
+export default function App() {
+  // let data = {
+  //   author: 'Gus',
+  //   timestamp: Date.now(),
+  //   message: 'Hola'
+  // };
+  // return (
+  //   <div className="App">
+  //     <Message data={data} />
+  //   </div>
+  // );
+  let messages = [
+    {
+      author: 'Gus',
+      timestamp: Date.now(),
+      message: 'Hola'
+    },
+    {
+      author: 'Gus',
+      timestamp: Date.now(),
+      message: 'como estas?'
+    },
+    {
+      author: 'Gus',
+      timestamp: Date.now(),
+      message: 'bien, vos?'
+    },
+  ];
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <MessageList messages={messages} />
     </div>
   );
 }
 
-export default App;
