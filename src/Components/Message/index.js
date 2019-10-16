@@ -3,24 +3,23 @@ import moment from 'moment';
 import './Message.css';
 
 export default function Message(props) {
-    const {
-      data
-    } = props;
+  const data = props.data;
 
-    console.log(props);
+  console.log(props.data);
+  console.log(data);
 
-    const friendlyTimestamp = moment(data.timestamp).format('LLLL');
-    return (
-      <div className='message'>
-        <div>{data.author} dice:</div>
-        <div className="bubble-container">
-          <div className="bubble" title={friendlyTimestamp}>
-            { data.message }
-          </div>
-        </div>
-        <div className="timestamp">
-          { friendlyTimestamp }
+  const friendlyTimestamp = moment(data.timestamp).calendar();
+  return (
+    <div>
+      <div>
+        {friendlyTimestamp}
+      </div>
+      <div>{data.author} dice:</div>
+      <div>
+        <div title={friendlyTimestamp}>
+          {data.message}
         </div>
       </div>
-    );
+    </div>
+  );
 }

@@ -2,18 +2,9 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 import MessageList from './Components/MessageList';
+import ChatInput from './Components/ChatInput';
 
 export default function App() {
-  // let data = {
-  //   author: 'Gus',
-  //   timestamp: Date.now(),
-  //   message: 'Hola'
-  // };
-  // return (
-  //   <div className="App">
-  //     <Message data={data} />
-  //   </div>
-  // );
   let messages = [
     {
       author: 'Gus',
@@ -33,8 +24,17 @@ export default function App() {
   ];
   return (
     <div className="App">
-      <MessageList messages={messages} />
-    </div>
+      <div style={{ display: "flex", flexDirection: "row", alignItems: "center", justifyContent: 'space-around', height: '100vh' }} >
+        <div>
+          <MessageList messages={messages} />
+          <ChatInput />
+        </div>
+        <div>
+          <MessageList messages={messages} />
+          <ChatInput />
+        </div>
+      </div>
+    </div >
   );
 }
 
