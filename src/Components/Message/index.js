@@ -8,15 +8,12 @@ export default function Message(props) {
   console.log(props.data);
   console.log(data);
 
-  const friendlyTimestamp = moment(data.timestamp).calendar();
+  const timestamp = moment(data.timestamp).calendar();
   return (
     <div>
+      <div>{timestamp} {data.author} says:</div>
       <div>
-        {friendlyTimestamp}
-      </div>
-      <div>{data.author} dice:</div>
-      <div>
-        <div title={friendlyTimestamp}>
+        <div>
           {data.message}
         </div>
       </div>
