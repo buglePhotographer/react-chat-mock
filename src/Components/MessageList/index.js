@@ -1,18 +1,17 @@
-import React, { useEffect, useState } from 'react';
-import Message from '../Message';
-import moment from 'moment';
+import React from "react";
+import Message from "../Message";
 //import './MessageList.css';
 
 export default function MessageList(props) {
-    const [messages, setMessages] = useState(props.messages);
+  const { messages, owner } = props;
 
-    const renderedMessages = messages.map((message) =>
-        <Message data={message} />
-    );
+  const renderedMessages = messages.map((message, index) => (
+    <Message data={message} owner={owner} key={index} />
+  ));
 
-    return (
-        <div style={{ position: "absolute", top: 0, marginTop: "5vh" }}>
-            {renderedMessages}
-        </div>
-    );
+  return (
+    <div style={{ position: "absolute", top: 0, marginTop: "5vh" }}>
+      {renderedMessages}
+    </div>
+  );
 }

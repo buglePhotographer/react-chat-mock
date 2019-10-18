@@ -1,21 +1,18 @@
-import React from 'react';
-import moment from 'moment';
-import './Message.css';
+import React from "react";
+import moment from "moment";
+import "./Message.css";
 
 export default function Message(props) {
   const data = props.data;
 
-  console.log(props.data);
-  console.log(data);
-
   const timestamp = moment(data.timestamp).calendar();
   return (
     <div>
-      <div>{timestamp} {data.author} says:</div>
       <div>
-        <div>
-          {data.message}
-        </div>
+        {timestamp} {data.author} says:
+      </div>
+      <div>
+        <div>{data.message}</div>
       </div>
     </div>
   );
