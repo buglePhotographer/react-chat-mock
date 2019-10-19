@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import Button from '@material-ui/core/Button';
+import TextField from '@material-ui/core/TextField';
 
 export default function ChatInput(props) {
   const { setMessages, owner } = props;
@@ -12,9 +14,9 @@ export default function ChatInput(props) {
   };
 
   return (
-    <div style={{ position: "absolute", bottom: 0, marginBottom: "5vh" }}>
-      <input
-        type="text"
+    <div style={{ position: "relative", bottom: 0, marginBottom: "5vh" }}>
+      <TextField
+        style={{marginRight: "1vw"}}
         value={message}
         onChange={e => setMessage(e.target.value)}
         onKeyPress={e => {
@@ -23,7 +25,7 @@ export default function ChatInput(props) {
           }
         }}
       />
-      <input type="button" onClick={() => handleSetMessages()} value="send" />
+      <Button variant="contained" color="primary" onClick={() => handleSetMessages()}>Send</Button>
     </div>
   );
 }

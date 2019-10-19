@@ -1,6 +1,5 @@
 import React, { useState } from "react";
-import MessageList from "../MessageList";
-import ChatInput from "../ChatInput";
+import ChatDisplay from "../ChatDisplay";
 
 export default function Chat() {
   const [messages, setMessages] = useState([]);
@@ -11,19 +10,20 @@ export default function Chat() {
         style={{
           display: "flex",
           flexDirection: "row",
-          alignItems: "center",
-          justifyContent: "space-around",
-          height: "100vh"
+          height: "100vh",
+          justifyContent: "space-evenly"
         }}
       >
-        <div>
-          <MessageList messages={messages} owner="Laura" />
-          <ChatInput owner="Laura" setMessages={setMessages} />
-        </div>
-        <div>
-          <MessageList messages={messages} owner="Bob" />
-          <ChatInput owner="Bob" setMessages={setMessages} />
-        </div>
+        {["Laura", "Bob"].map((owner, index) => {
+          return (
+            <ChatDisplay
+              owner={owner}
+              messages={messages}
+              setMessages={setMessages}
+              key={index}
+            />
+          );
+        })}
       </div>
     </div>
   );

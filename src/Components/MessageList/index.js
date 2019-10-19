@@ -1,5 +1,6 @@
 import React from "react";
 import Message from "../Message";
+import { List } from "@material-ui/core";
 //import './MessageList.css';
 
 export default function MessageList(props) {
@@ -10,8 +11,8 @@ export default function MessageList(props) {
   ));
 
   return (
-    <div style={{ position: "absolute", top: 0, marginTop: "5vh" }}>
+    <List component="nav" style={{ height: "80vh", width: "25vw", overflow: "auto", display: "flex", flexDirection: "column" }}>
       {renderedMessages}
-    </div>
+    </List>
   );
 }
